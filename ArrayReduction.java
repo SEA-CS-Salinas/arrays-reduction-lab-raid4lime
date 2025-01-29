@@ -1,6 +1,6 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - Casey Martinez 
 
 import java.util.Queue;
 import java.util.PriorityQueue;
@@ -10,8 +10,34 @@ public class ArrayReduction
 {
 	public static int min_cost( int[] r )
 	{
-		//MUST USE A PRIORITY QUEUE
-		return 0;	
+	    //MUST USE A PRIORITY QUEUE
+
+	    PriorityQueue <Integer> pq = new PriorityQueue <Integer>();// Initialize the PriorityQueue
+
+	     // adds the elements from the Array into the PriorityQueue
+	    for (int num : r)
+	    {
+	        pq.add(num); // adds num into the PriorityQueue
+	    }
+	    
+	    int totalCost = 0; // Initializes a variable for the totalCost
+	    
+	    // While there is more than one element left in Queue it gets the two smallest elements
+	    while(pq.size() > 1) 
+	    {
+	        int one = pq.poll(); // element 1
+	        
+	        int two = pq.poll(); // element 2
+	        
+	        int sum = 0;
+	        
+	        sum = one + two; // adds the elements togther 
+	        
+	        pq.add(sum); // adds the sum to PriorityQueue
+	        totalCost += sum; // Adds sum to totalCost
+	    }
+	    
+	    return totalCost; // Returns the totalCost
 	}
 	
 	public static void main( String[] args )
